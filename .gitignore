@@ -1,0 +1,18 @@
+# dependencies and build output
+node_modules/
+.venv/
+
+# local experiments and private notes (never published)
+adb-mcp/
+memory.md
+*.bak-*
+
+# images and Photoshop files: the repo does not ship any
+*.psd
+*.psb
+
+# editor / tool state
+.claude/settings.local.json
+.vscode/
+.DS_Store
+Thumbs.db

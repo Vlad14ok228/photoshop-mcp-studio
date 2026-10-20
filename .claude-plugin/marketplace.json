@@ -1,0 +1,14 @@
+{
+  "name": "photoshop-mcp-studio",
+  "owner": { "name": "Vladyslav Kornieiev" },
+  "metadata": {
+    "description": "Photoshop automation for Claude: a pinned Photoshop MCP server, tested high-level tools and skills (Windows)."
+  },
+  "plugins": [
+    {
+      "name": "photoshop-studio",
+      "source": "./photoshop-studio",
+      "description": "Photoshop automation: pinned telemetry-off MCP server, tested cutout tools and skills for background removal and troubleshooting (Windows)."
+    }
+  ]
+}

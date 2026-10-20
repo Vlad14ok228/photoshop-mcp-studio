@@ -1,0 +1,13 @@
+{
+  "name": "photoshop-mcp-studio",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Photoshop automation for Claude (Code and Desktop): MCP server tools, skills and installers.",
+  "license": "MIT",
+  "scripts": {
+    "test": "npm --prefix photoshop-studio/server test && node --test \"scripts/test/*.test.mjs\"",
+    "test:integration": "npm --prefix photoshop-studio/server run test:integration",
+    "install:desktop": "node scripts/claude-desktop.mjs",
+    "uninstall:desktop": "node scripts/claude-desktop.mjs --uninstall"
+  }
+}

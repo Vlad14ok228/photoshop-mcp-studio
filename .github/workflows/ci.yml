@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: photoshop-studio/server/package-lock.json
+      - name: Install server dependencies
+        run: npm --prefix photoshop-studio/server ci
+      - name: Validate JSON manifests
+        run: |
+          node -e "for (const f of ['.claude-plugin/marketplace.json','photoshop-studio/.claude-plugin/plugin.json','photoshop-studio/.mcp.json']) { JSON.parse(require('fs').readFileSync(f,'utf8')); console.log('ok', f); }"
+      - name: Unit tests (integration tests need a real Photoshop and are skipped here)
+        run: npm test

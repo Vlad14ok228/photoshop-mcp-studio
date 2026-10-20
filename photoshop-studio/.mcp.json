@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "photoshop": {
+      "command": "cmd",
+      "args": ["/c", "npx", "-y", "@alisaitteke/photoshop-mcp@1.7.37"],
+      "env": {
+        "ANALYTICS_DISABLED": "1",
+        "PSMCP_FEEDBACK": "0"
+      }
+    },
+    "studio-tools": {
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/server/launch.mjs"]
+    }
+  }
+}
