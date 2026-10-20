@@ -42,3 +42,14 @@ The integration tests build a synthetic document, run the tool, export a PNG thr
 - **The UXP bridge of the generic server only serves Neural Filters.** All other tools use COM. Loading UXP plugins without Creative Cloud is not possible (manually copied plugins are ignored by Photoshop).
 - **A tool that says `ok` can still be wrong.** Always verify the result (empty-result guard, exported-pixel tests).
 - Tooling notes (Windows): in Git Bash use `MSYS_NO_PATHCONV=1` when passing `/c`; PowerShell 5.1 `Set-Content -Encoding utf8` writes a BOM.
+
+## Releasing an update
+1. Change code, docs and skills; run `npm test` (and `npm run test:integration` with Photoshop running).
+2. Bump the version in **all three** places: `package.json`, `photoshop-studio/.claude-plugin/plugin.json`, `photoshop-studio/server/package.json` (and the `version` in `photoshop-studio/server/index.mjs`).
+   Claude Code updates an installed plugin only when its version changes.
+3. Add an entry to `CHANGELOG.md`.
+4. Commit and push to `main`; wait for CI to pass.
+5. Tag and publish: `git tag -a vX.Y.Z -m vX.Y.Z && git push origin vX.Y.Z`, then `gh release create vX.Y.Z --notes-file ...`.
+6. Users update with `claude plugin update photoshop-studio@photoshop-mcp-studio` (restart Claude Code) or `git pull` for the Claude Desktop installation.
+
+Before publishing, check that nothing personal is staged (no images, absolute user paths, credentials) and that commits use a GitHub noreply address.
