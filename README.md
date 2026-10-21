@@ -54,6 +54,8 @@ The script finds your Claude Desktop config (Microsoft Store build or classic in
 Keep the cloned folder where it is: the config points into it. To remove everything: `node scripts/claude-desktop.mjs --uninstall`.
 
 > Claude Desktop does not load Claude Code skills. It receives the key rules through the server instructions of `studio-tools` instead.
+>
+> In Claude Desktop the first use of each tool asks for permission (**Allow once** / **Always allow**). Both servers are listed under **+ > Connectors** and can be switched on or off there. If the very first call right after starting Claude Desktop says Photoshop is not running, just ask again (seen once during testing, the next call worked).
 
 ## Quick test
 
@@ -82,7 +84,7 @@ Photoshop shows hint popups (for example the *Generative Fill* tooltip of the Co
 
 ## Known limitations (read this)
 
-- **Windows only**, tested only with Photoshop 2026 and Claude Code. The Claude Desktop installer is covered by automated tests and was dry-run against a real config, but end-to-end use in Claude Desktop has not been confirmed yet.
+- **Windows only**, tested only with Photoshop 2026. Verified end-to-end in Claude Code and in the Microsoft Store build of Claude Desktop (2.42304.2): both servers appear under *Connectors*, and `ps_cutout_polygon` ran successfully from a Desktop chat.
 - `ps_cutout_polygon` needs coordinates. Color Range cleanup only catches saturated hues, so on a hard image a thin pale fringe or dark remnants can remain. Measured on one test illustration: 6.1% fringe without cleanup, 1.3% with 4 passes. Always look at the result.
 - For "remove the background around the main subject" use `photoshop_recipe_remove_background`; it cannot be told which of several objects to keep.
 

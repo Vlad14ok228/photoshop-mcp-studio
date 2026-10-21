@@ -2,6 +2,11 @@
 
 All notable changes are listed here. The format follows [Keep a Changelog](https://keepachangelog.com/).
 
+## [Unreleased]
+
+### Changed
+- Documentation: Claude Desktop is now verified end-to-end (Microsoft Store build 2.42304.2): both servers show up under Connectors and `ps_cutout_polygon` ran from a Desktop chat.
+
 ## [0.1.0] - 2026-10-20
 
 First public release (Windows, Claude Code and Claude Desktop).
@@ -17,5 +22,5 @@ First public release (Windows, Claude Code and Claude Desktop).
 - GitHub Actions CI for the unit tests.
 
 ### Known issues
-- Windows only; tested with Photoshop 2026 and Claude Code. End-to-end use in Claude Desktop is not yet confirmed.
+- Windows only; tested with Photoshop 2026, Claude Code and Claude Desktop (checked after the release; see Unreleased).
 - Color Range cleanup does not remove dark or low-saturation background remnants.
